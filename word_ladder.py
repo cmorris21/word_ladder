@@ -1,7 +1,13 @@
 #!/bin/python3
+from collections import deque
 
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
+    
+    que = []
+    que.append(start_word)
+    
+    
     '''
     Returns a list satisfying the following properties:
 
@@ -35,6 +41,12 @@ def verify_word_ladder(ladder):
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
+    if ladder == []:
+        return False
+    for word1, word2 in zip(ladder, ladder[1:]):
+        if not _adjacent(word1,word2):
+            return False
+        return True
 
 
 def _adjacent(word1, word2):
@@ -47,3 +59,13 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
+    if len(word1)==len(word2):
+        count = 0
+        for i in range(len(word1)):
+            if word1[i] == word2[i]:
+                count += 1
+    if count == 3:
+        return True
+    else:
+        return False
+            
