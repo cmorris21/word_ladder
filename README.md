@@ -1,3 +1,3 @@
-# Word Ladder ![](https://travis-ci.org/cmorris21/word_ladder)
+# Word Ladder ![](https://api.travis-ci.com/cmorris21/word_ladder.svg?branch=master)
 
 This is hw4 for CMC's [CS46: data structures](https://github.com/mikeizbicki/cmc-csci046) course.
