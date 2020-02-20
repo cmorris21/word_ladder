@@ -4,6 +4,9 @@ from collections import deque
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     
+    if start_word == end_word:
+        return [start_word]
+    
     que = []
     que.append(start_word)
     
