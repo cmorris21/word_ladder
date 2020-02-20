@@ -67,7 +67,7 @@ def verify_word_ladder(ladder):
     '''
     if ladder == []:
         return False
-    for word1, word2 in zip(ladder, ladder[1:]):
+    for word1,word2 in zip(ladder, ladder[1:]):
         if not _adjacent(word1, word2):
             return False
     return True
