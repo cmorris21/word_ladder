@@ -29,7 +29,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 copy.append(word)
                 que.appendleft(copy)
                 words.remove(word)
-       return None
+    return None
  
     '''
     Returns a list satisfying the following properties:
