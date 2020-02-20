@@ -7,10 +7,30 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     if start_word == end_word:
         return [start_word]
     
-    que = []
-    que.append(start_word)
+    stack = []
+    stack.append(start_word)
+    que = deque()
+    que.append(stack)
     
+    word_list = open(dictionary_file).readlines()
     
+    words = []
+    
+    for word in word_list:
+        words.append(word.strip("\n"))
+    while len(que) > 0:
+        que.pop()
+        for word in words:
+            if _adjacent(word, stack[0]):
+                if word == end_word:
+                    stack.append(word)
+                    return stack
+                copy = deepcopy(stack)
+                copy.append(word)
+                que.appendleft(copy)
+                words.remove(word)
+       return None
+ 
     '''
     Returns a list satisfying the following properties:
 
