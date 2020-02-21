@@ -5,31 +5,31 @@ from copy import deepcopy
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     
-    if start_word == end_word:
+     if start_word == end_word:
         return [start_word]
     
-    stack = []
-    stack.append(start_word)
-    que = deque()
-    que.append(stack)
-    
-    word_list = open(dictionary_file).readlines()
-    
+    stack = []         
+    stack.append(start_word)  
+    que = deque()    
+    que.append(stack)    
+   
+    word_file = open(dictionary_file).readlines()
     words = []
-    
-    for word in word_list:
-        words.append(word.strip("\n"))
-    while len(que) > 0:
-        que.pop()
+
+    for x in word_file:
+        words.append(x.strip("\n"))
+   
+    while len(que) > 0:        
+        que.pop()             
         for word in words:
-            if _adjacent(word, stack[0]):
-                if word == end_word:
-                    stack.append(word)
+            if _adjacent(word,stack[0]):          
+                if word == end_word:                     
+                    stack.append(word)          
                     return stack
-                copy = deepcopy(stack)
-                copy.append(word)
-                que.appendleft(copy)
-                words.remove(word)
+                copylist = deepcopy(stack)
+                copylist.append(word)
+                que.appendleft(copyList)
+                words.remove(word) 
     return None
  
     '''
