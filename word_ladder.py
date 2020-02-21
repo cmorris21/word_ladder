@@ -5,7 +5,7 @@ from copy import deepcopy
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     
-     if start_word == end_word:
+    if start_word == end_word:
         return [start_word]
     
     stack = []
