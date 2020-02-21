@@ -8,10 +8,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
      if start_word == end_word:
         return [start_word]
     
-    stack = []         
-    stack.append(start_word)  
-    que = deque()    
-    que.append(stack)    
+    stack = []
+    stack.append(start_word)
+    que = deque()
+    que.append(stack)
    
     word_file = open(dictionary_file).readlines()
     words = []
@@ -19,17 +19,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     for x in word_file:
         words.append(x.strip("\n"))
    
-    while len(que) > 0:        
-        que.pop()             
+    while len(que) > 0:
+        que.pop()
         for word in words:
-            if _adjacent(word,stack[0]):          
-                if word == end_word:                     
-                    stack.append(word)          
+            if _adjacent(word,stack[0]): 
+                if word == end_word:          
+                    stack.append(word)
                     return stack
                 copylist = deepcopy(stack)
                 copylist.append(word)
                 que.appendleft(copyList)
-                words.remove(word) 
+                words.remove(word)
     return None
  
     '''
