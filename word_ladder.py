@@ -83,13 +83,26 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
-    if len(word1)==len(word2):
-        count = 0
-        for i in range(len(word1)):
-            if word1[i] == word2[i]:
-                count += 1
-    if count == 3:
+    
+    if len(word1)== len(word2):  #checks if both words are the same length
+        numdifs = 0              #assuming there are no differences between the two words   
+        for x,y in zip(word1, word2):      #pairing the words one for one and seeing if they're similar
+            if x!= y:              #if they're not similar, we increment numdifs by one
+                if numdifs:         #if numdifs is 1 or greater, they're not adjacent
+                    return False
+                numdifs +=1
         return True
     else:
         return False
+    
+    #if len(word1)==len(word2):
+     #   count = 0
+      #  for i in range(len(word1)):
+       #     if word1[i] == word2[i]:
+        #        count += 1
+    #if count == 3:
+     #   return True
+    #else:
+     #   return False
+      
             
