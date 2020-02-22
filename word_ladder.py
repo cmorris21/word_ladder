@@ -9,8 +9,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
     stack = []
     stack.append(start_word)
+    
     que = deque()
     que.appendleft(stack)
+    
     word_file = open(dictionary_file).readlines()
     words = []
     
@@ -19,19 +21,19 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
     for x in word_file:
         words.append(x.strip("\n"))
+        
     while len(que) != 0:
         top = que.pop()
         for word in words:
-            to_remove=[]
             if _adjacent(word,top[-1]):
-                stackCopy = copy.deepcopy(top)
-                stackCopy.append(word)
+                stack_copy = copy.deepcopy(top)
+                stack_copy.append(word)
                 if word == end_word:
-                    for i in range(1,len(stackCopy)-2):
+                    for i in range(1,len(stack_copy)-2):
                         if _adjacent(top[i-1],top[i+1]):
-                            stackCopy.pop(i)
-                    return (stackCopy)
-                que.appendleft(stackCopy)
+                            stack_copy.pop(i)
+                    return (stack_copy)
+                que.appendleft(stack_copy)
                 words.remove(word)
 
 
@@ -42,10 +44,12 @@ def verify_word_ladder(ladder):
     '''
     if ladder == []:
         return False
-    for word1,word2 in zip(ladder, ladder[1:]):
+    
+    for word1, word2 in zip(ladder, ladder[1:]):
         if not _adjacent(word1, word2):
             return False
     return True
+
 def _adjacent(word1, word2):
     '''
     Returns True if the input words differ by only a single character;
@@ -53,7 +57,8 @@ def _adjacent(word1, word2):
     '''
     if word1 == word2:
         return False
-    if len(word1)== len(word2):
+    
+    if len(word1) == len(word2):
         char_diff = 0
         for x,y in zip(word1, word2):
             if x!= y:
