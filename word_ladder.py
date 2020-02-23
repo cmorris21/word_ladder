@@ -36,7 +36,6 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 que.appendleft(stack_copy)
                 words.remove(word)
 
-
 def verify_word_ladder(ladder):
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
@@ -68,3 +67,5 @@ def _adjacent(word1, word2):
         return True
     else:
         return False
+   
+ ## collaborated with Yusef Ismaeel 
